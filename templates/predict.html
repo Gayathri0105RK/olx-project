@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction - Carso</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1c1c1c;
+            color: #f57c00;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #f57c00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #f57c00;
+            font-size: 2em;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        select, input[type="text"], input[type="number"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            color: #ffffff;
+            background: #f57c00;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #e65100;
+        }
+
+        footer {
+            background: #1c1c1c;
+            color: #f57c00;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        header, .container, footer {
+            animation: fadeIn 2s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Car Price Prediction</h1>
+            <p>Predict the price of your second-hand car</p>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Enter Car Details</h2>
+        <form action="/check" method="POST">
+            <label for="make">Make</label>
+            <select id="make" name="make" required>
+                <option value="" disabled selected>Select Make</option>
+                <option>Toyota</option>
+                <option>Suzuki</option>
+                <option>Daihatsu</option>
+                <option>Honda</option>
+                <option>Hyundai</option>
+                <option>Mitsubishi</option>
+                <option>KIA</option>
+                <option>Changan</option>
+                <option>FAW</option>
+                <option>Mercedes</option>
+                <option>Chevrolet</option>
+            </select>
+
+            <label for="model">Model</label>
+            <select id="model" name="model" required>
+                <option value="" disabled selected>Select Model</option>
+                <!-- List of models -->
+                <option>Passo</option>
+                <option>Ravi</option>
+                <option>Bolan</option>
+                <option>Move</option>
+                <option>Swift</option>
+                <option>Wagon R</option>
+                <option>Mira</option>
+                <option>City IDSI</option>
+                <option>Cultus VXR</option>
+                <option>Every</option>
+                <option>Corolla XLI</option>
+                <option>Baleno</option>
+                <option>City Vario</option>
+                <option>Terios Kid</option>
+                <option>Civic Prosmetic</option>
+                <option>City IVTEC</option>
+                <option>Santro</option>
+                <option>Corrolla Altis</option>
+                <option>City Aspire</option>
+                <option>Mehran VXR</option>
+                <option>Cuore</option>
+                <option>Pajero Mini</option>
+                <option>Picanto</option>
+                <option>Alto</option>
+                <option>Karvaan</option>
+                <option>X-PV</option>
+                <option>Hijet</option>
+                <option>Ek Wagon</option>
+                <option>Altis Grande</option>
+                <option>E Class</option>
+                <option>Yaris</option>
+                <option>Lancer</option>
+                <option>Corolla GLI</option>
+                <option>Joy</option>
+                <option>Civic Oriel</option>
+                <option>Classic</option>
+                <option>Spectra</option>
+                <option>V2</option>
+                <option>Minicab Bravo</option>
+                <option>Corolla Assista</option>
+                <option>Alsvin</option>
+                <option>C Class</option>
+                <option>Minica</option>
+                <option>Exclusive</option>
+                <option>Civic VTi</option>
+                <option>Cervo</option>
+                <option>Sportage</option>
+                <option>Corolla Axio</option>
+                <option>Every Wagon</option>
+                <option>Liana</option>
+                <option>Civic EXi</option>
+                <option>Surf</option>
+                <option>Mehran VX</option>
+                <option>Civic VTi Oriel</option>
+                <option>Khyber</option>
+                <option>Cultus VXL</option>
+                <option>Prius</option>
+                <option>ISIS</option>
+            </select>
+
+            <label for="year">Year</label>
+            <select id="year" name="year" required>
+                <option value="" disabled selected>Select Year</option>
+                <!-- List of years -->
+                <option>2021</option>
+                <option>2018</option>
+                <option>2015</option>
+                <option>2013</option>
+                <option>2011</option>
+                <option>2020</option>
+                <option>2016</option>
+                <option>2004</option>
+                <option>2008</option>
+                <option>2007</option>
+                <option>2006</option>
+                <option>2023</option>
+                <option>2014</option>
+                <option>2019</option>
+                <option>2009</option>
+                <option>2017</option>
+                <option>2012</option>
+                <option>2005</option>
+                <option>2003</option>
+                <option>2010</option>
+                <option>2022</option>
+                <option>2002</option>
+                <option>2001</option>
+                <option>2000</option>
+                <option>1993</option>
+                <option>1989</option>
+                <option>2024</option>
+            </select>
+
+            <label for="kms_driven">KM's Driven</label>
+            <input type="number" id="kms_driven" name="kms_driven" required>
+
+            <label for="fuel">Fuel Type</label>
+            <select id="fuel" name="fuel" required>
+                <option value="" disabled selected>Select Fuel Type</option>
+                <option>Petrol</option>
+                <option>CNG</option>
+                <option>Hybrid</option>
+                <option>Diesel</option>
+            </select>
+
+            <label for="registration_city">Registration City</label>
+            <select id="registration_city" name="registration_city" required>
+                <option value="" disabled selected>Select Registration City</option>
+                <!-- List of registration cities -->
+                <option>Unregistered</option>
+                <option>Karachi</option>
+                <option>Lahore</option>
+                <option>Sindh</option>
+                <option>Faisalabad</option>
+                <option>Islamabad</option>
+                <option>Sialkot</option>
+                <option>Gujranwala</option>
+                <option>Punjab</option>
+                <option>Multan</option>
+                <option>Rawalpindi</option>
+                <option>Bahawalpur</option>
+                <option>Hyderabad</option>
+                <option>Rahimyar Khan</option>
+                <option>Chishtian Mandi</option>
+                <option>Chiniot</option>
+                <option>Wazirabad</option>
+                <option>Sahiwal</option>
+                <option>Gujrat</option>
+                <option>Abbottabad</option>
+                <option>Khanewal</option>
+                <option>Peshawar</option>
+                <option>Sargodha</option>
+                <option>Bannu</option>
+                <option>Nowshera</option>
+                <option>Kasur</option>
+                <option>Arifwala</option>
+                <option>Jhang Sadar</option>
+                <option>Dera Ghazi Khan</option>
+                <option>Mardan</option>
+                <option>Attock</option>
+                <option>Larkana</option>
+                <option>Unknown</option>
+                <option>Jhelum</option>
+                <option>Khanpur</option>
+                <option>Wah</option>
+                <option>Okara</option>
+                <option>Bhakkar</option>
+                <option>Sheikhüpura</option>
+                <option>Swat</option>
+                <option>Dera Ismail Khan</option>
+                <option>Khushab</option>
+                <option>Bhimber</option>
+                <option>Mansehra</option>
+                <option>Mirpur</option>
+                <option>Quetta</option>
+                <option>Vehari</option>
+                <option>Hafizabad</option>
+                <option>Charsadda</option>
+                <option>Toba Tek singh</option>
+                <option>Jaranwala</option>
+                <option>Pirmahal</option>
+                <option>Haripur</option>
+                <option>Mirpur Khas</option>
+                <option>Bahawalnagar</option>
+                <option>Swabi</option>
+                <option>Dadu</option>
+                <option>Mianwali</option>
+                <option>Sukkar</option>
+                <option>Badin</option>
+                <option>Nawabshah</option>
+            </select>
+
+            <label for="car_documents">Car Documents</label>
+            <select id="car_documents" name="car_documents" required>
+                <option value="" disabled selected>Select Car Documents</option>
+                <option>Original</option>
+                <option>Duplicate</option>
+            </select>
+
+            <label for="assembly">Assembly</label>
+            <select id="assembly" name="assembly" required>
+                <option value="" disabled selected>Select Assembly</option>
+                <option>Imported</option>
+                <option>Local</option>
+            </select>
+
+            <label for="transmission">Transmission</label>
+            <select id="transmission" name="transmission" required>
+                <option value="" disabled selected>Select Transmission</option>
+                <option>Automatic</option>
+                <option>Manual</option>
+            </select>
+
+            <button type="submit" class="btn">Predict Price</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Carso. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
